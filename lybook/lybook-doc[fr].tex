@@ -1,10 +1,12 @@
-\documentclass[12pt,a4paper]{scrartcl}
+\documentclass[14pt]{memoir}
 
 \usepackage{lybook}
 
 
 
 \begin{document}
+
+\frontmatter
 
 \title{%	
 	Le package \texttt{lybook}:\\%
@@ -18,22 +20,57 @@
 \maketitle
 
 
-\vspace{2em}
+% Source : https://latex.org/forum/viewtopic.php?t=12386
 
-\hrule
-
-\tableofcontents
-
-\vspace{1.5em}
-
-\hrule
-
-\newpage
+\begin{KeepFromToc}
+   \tableofcontents
+\end{KeepFromToc}
 
 
+\mainmatter
 
-\section{Introduction}
+%\part{Partie}
 
+\chapter{Chapitre long long long long long long long long long long long long long}
+
+\section{Section longue longue longue longue longue longue longue longue longue longue longue longue longue longue}
+
+\subsection{Subsection}
+
+\subsubsection{Subsubsection}
+
+\paragraph{Paragraph}
+
+\subimport*{content/}{intro}
+
+
+
+\section{Mise en forme générale}
+
+\subimport*{content/}{formating}
+
+
+
+\section{Outils pédagogiques}
+
+\subimport*{content/}{pedagogy}
+
+
+
+\section{Mathématiques}
+
+\subimport*{content/}{math}
+
+
+
+\section{Informatique et programmation}
+
+\subimport*{content/}{computer-science}
+
+
+
+
+\chapter{Chapitre}
 
 
 \end{document}

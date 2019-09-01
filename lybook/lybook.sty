@@ -2,17 +2,109 @@
 % -- PACKAGES REQUIRED -- %
 % ----------------------- %
 
-\RequirePackage{ifplatform}
 
-\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
-\usepackage{enumitem}
+%% Formatting
+
+\usepackage[
+	top  = 2.25cm, bottom = 2.25cm, 
+	left = 1.75cm, right  = 1.75cm
+]{geometry}
+
+\usepackage{titlesec}
+
+
+%% Language
+
 \usepackage[french]{babel}
+
+
+
+%%%%%%%%%%%%
+
+\usepackage{ifplatform}
+
+\usepackage{enumitem}
+
 
 \usepackage{color}
 \usepackage{hyperref}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+
+
+\usepackage{tcolorbox}
+
+
+% \tcbuselibrary{minted}
+
+\usepackage{fancyvrb}
+
+\usepackage{import}
+
 
 
 % ------------------------ %
 % -- SPECIAL FORMATTING -- %
 % ------------------------ %
 
+\setlength\parindent{0pt}
+
+
+
+% Redefine representation for section and co counters
+%
+% Source : https://tex.stackexchange.com/a/37947/6880
+\setsecnumdepth{subsubsection}
+
+\renewcommand\thepart{\arabic{part}}
+\renewcommand\thechapter{\Alph{chapter}}
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\roman{subsubsection}}
+
+
+\setcounter{tocdepth}{3}
+
+% Source : https://latex.org/forum/viewtopic.php?t=7094
+\renewcommand{\printtoctitle}{\centering\Large\bfseries}
+
+
+
+\newenvironment{bullets}{
+	\begin{itemize}[label=\small\textbullet]
+}{
+	\end{itemize}
+}
+
+
+
+
+% ----------------------- %
+% -- PEDAGOGICAL TOOLS -- %
+% ----------------------- %
+
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\newtheorem{remark}[theorem]{Remarque}
+
+\newtheorem{@proof}[theorem]{Preuve}
+
+
+\newenvironment{proof}{
+	\addtocounter{theorem}{-1}
+	\begin{@proof}
+}{
+	\end{@proof}
+}
