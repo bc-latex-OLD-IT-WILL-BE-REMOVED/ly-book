@@ -1,0 +1,32 @@
+Pour bien séparer certains contenus particuliers comme du code par exemple, il est possible d'utiliser des cadres avec ou sans titre
+\footnote{
+    Merci au package \texttt{tcolorbox}.
+}.
+Voici un exemple de code où \verb+\fakecontent+ est une macro définie dans le code de ce document.
+
+\begin{frame-gene}[Code \LaTeX]
+\small
+\begin{verbatim}
+\begin{frame-gene}[Un titre personnalisable]
+    \fakecontent
+\end{frame-gene}
+
+\begin{frame-gene}
+    Pas de titre pour moi. Merci !
+\end{frame-gene}
+\end{verbatim}
+\end{frame-gene}
+
+
+
+\medskip
+
+Nous mettons directement la mise en forme obtenue ci-dessous.
+
+\begin{frame-gene}[Un titre personnalisable]
+    \fakecontent
+\end{frame-gene}
+
+\begin{frame-gene}
+    Pas de titre pour moi. Merci !
+\end{frame-gene}

@@ -1,5 +1,5 @@
 ==========
-2019-09-01
+2019-09-02
 ==========
 
-**First version version::``0.0.0-beta`` of ¨lybook:** ????
+**First version version::``0.0.0-beta`` of ¨lybook:** the aim of this package is just to give basic and efficient formattings for lessons in hig school.

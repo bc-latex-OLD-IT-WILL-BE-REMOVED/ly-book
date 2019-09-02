@@ -1,0 +1,76 @@
+Voici un exemple de code, présenté sur deux colonnes
+\footnote{
+	Nous avons utilisé ici l'environnement \texttt{multicols-sep} proposé par le package \texttt{lybook}.
+}
+où \verb+\fakecontent+ est une macro définie dans le code de ce document.
+
+\begin{frame-gene}[Code \LaTeX]
+\small
+\begin{multicols-sep}{2}
+	\begin{verbatim}
+\begin{theorem}[Important]
+    \fakecontent
+\end{theorem}
+
+\prooftodo[Juste l'unicité]
+
+\begin{proposition}
+    \fakecontent
+\end{proposition}
+
+\begin{corollary}
+    \fakecontent
+\end{corollary}\end{verbatim}
+
+	\columnbreak
+	
+	\begin{verbatim}
+\begin{lemma}
+    \fakecontent
+\end{lemma}
+
+\prooftodo
+
+\begin{remark}
+    \fakecontent
+\end{remark}
+
+\begin{proof}
+    \fakecontent
+\end{proof}\end{verbatim}
+\end{multicols-sep}
+\end{frame-gene}
+
+
+La mise en forme est la suivante.
+
+\begin{frame-gene}[Rendu réel]
+\small
+\begin{theorem}[Important]
+    \fakecontent
+\end{theorem}
+
+\prooftodo[Juste l'unicité]
+
+\begin{proposition}
+    \fakecontent
+\end{proposition}
+
+\begin{corollary}
+    \fakecontent
+\end{corollary}
+
+\begin{lemma}
+    \fakecontent
+\end{lemma}
+
+\prooftodo
+
+\begin{remark}
+    \fakecontent
+\end{remark}
+
+\begin{proof}
+    \fakecontent
+\end{proof}
+\end{frame-gene}

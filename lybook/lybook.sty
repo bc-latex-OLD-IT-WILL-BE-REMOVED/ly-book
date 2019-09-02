@@ -11,6 +11,15 @@
 ]{geometry}
 
 \usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\usepackage{color}
+
+
+%% References
+
+\usepackage{hyperref}
 
 
 %% Language
@@ -18,38 +27,27 @@
 \usepackage[french]{babel}
 
 
+%% TeX programming
 
-%%%%%%%%%%%%
-
-\usepackage{ifplatform}
-
-\usepackage{enumitem}
+\usepackage{ifthen}
 
 
-\usepackage{color}
-\usepackage{hyperref}
-
-
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage[
-    type={CC},
-    modifier={by-nc-sa},
-	version={4.0},
-]{doclicense}
-
-
+%% Frames
 
 \usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 
 
-% \tcbuselibrary{minted}
+%% Misc.
 
-\usepackage{fancyvrb}
-
+\usepackage{ifplatform}
 \usepackage{import}
+
+
+
+%% Math
+
+\usepackage{lymath}
 
 
 
@@ -79,6 +77,27 @@
 \renewcommand{\printtoctitle}{\centering\Large\bfseries}
 
 
+\newcommand\buildfront[3]{
+\frontmatter
+
+\title{#1}
+\author{#2}
+\date{#3}
+
+\maketitle
+
+
+% Source : https://latex.org/forum/viewtopic.php?t=12386
+
+\begin{KeepFromToc}
+   \tableofcontents
+\end{KeepFromToc}
+
+
+\mainmatter
+}
+
+
 
 \newenvironment{bullets}{
 	\begin{itemize}[label=\small\textbullet]
@@ -89,13 +108,42 @@
 
 
 
+% --------------- %
+% -- MULTICOLS -- %
+% --------------- %
+
+\newenvironment{multicols-sep}[1]{
+	\setlength{\columnseprule}{0.4pt}
+	\setlength\columnsep{40pt} 
+	\begin{multicols}{#1}
+}{
+	\end{multicols}
+	\setlength{\columnseprule}{0pt}
+	\setlength\columnsep{10pt} 
+}
+
+
+% ------------ %
+% -- FRAMES -- %
+% ------------ %
+
+\newenvironment{frame-gene}[1][]{
+	\begin{tcolorbox}[title=#1, colbacktitle=black!10!white, colback=white, coltitle=black, breakable,center title, fonttitle=\bfseries\itshape\small]
+}{
+	\end{tcolorbox}
+}
+
+
+
 % ----------------------- %
 % -- PEDAGOGICAL TOOLS -- %
 % ----------------------- %
 
 \newtheorem{theorem}{Théorème}[section]
+
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem{lemma}[theorem]{Lemme}
 
 \newtheorem{remark}[theorem]{Remarque}
 
@@ -107,4 +155,13 @@
 	\begin{@proof}
 }{
 	\end{@proof}
+}
+
+% Source: https://stackoverflow.com/a/44191005/4589608
+
+\newcommand\prooftodo[1][]{%
+   \ifthenelse{ \equal{#1}{} }
+      {\begin{proof}}
+      {\begin{proof}[#1]}
+	\end{proof}
 }

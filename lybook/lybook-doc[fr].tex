@@ -2,75 +2,136 @@
 
 \usepackage{lybook}
 
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+
+\newcommand\fakecontent{
+	Bla, bla, bla, bla, bla, bla, bla, bla, bla
+	bla, bla, bla, bla, bla, bla, bla, bla, bla
+	la, bla, bla, bla, bla, bla, bla, bla, bla
+	la, bla, bla, bla, bla, bla, bla, bla, bla
+	\dots
+}
 
 
 \begin{document}
 
-\frontmatter
-
-\title{%	
+\buildfront{%	
 	Le package \texttt{lybook}:\\%
 	taper des cours pour des lycéens\\%
 	{\footnotesize Code source disponible sur \url{https://github.com/bc-latex/ly-book}.}\\%
 {\footnotesize Version \texttt{0.0.0-beta} développée et testée sur \macosxname{}.}%
+}{
+	Christophe BAL
+}{
+	2019-09-02
 }
-\author{Christophe BAL}
-\date{2019-09-01}
-
-\maketitle
 
 
-% Source : https://latex.org/forum/viewtopic.php?t=12386
+% ----------- %
 
-\begin{KeepFromToc}
-   \tableofcontents
-\end{KeepFromToc}
+\part{Mise en forme}
 
+\chapter{Généralités}
 
-\mainmatter
-
-%\part{Partie}
-
-\chapter{Chapitre long long long long long long long long long long long long long}
-
-\section{Section longue longue longue longue longue longue longue longue longue longue longue longue longue longue}
-
-\subsection{Subsection}
-
-\subsubsection{Subsubsection}
-
-\paragraph{Paragraph}
+\section{Pourquoi ?}
 
 \subimport*{content/}{intro}
 
 
-
-\section{Mise en forme générale}
-
-\subimport*{content/}{formating}
+% ----------- %
 
 
+\section{Avertissement}
 
-\section{Outils pédagogiques}
-
-\subimport*{content/}{pedagogy}
-
+\subimport*{content/}{classwarning}
 
 
-\section{Mathématiques}
-
-\subimport*{content/}{math}
+% ----------- %
 
 
+\section{Titre du manuel (facultatif)}
 
-\section{Informatique et programmation}
-
-\subimport*{content/}{computer-science}
-
+\subimport*{content/}{title}
 
 
+% ----------- %
 
-\chapter{Chapitre}
 
+\section{Numérotation des parties, chapitres et sections}
+
+\subimport*{content/}{sectionnumbering}
+
+
+% ----------- %
+
+
+\section{Théorèmes et preuves}
+
+\subimport*{content/}{proving}
+
+
+% ----------- %
+
+
+\section{Listes}
+
+\subimport*{content/}{lists}
+
+
+% ----------- %
+
+
+\section{Multi-colonnes et traits verticaux}
+
+\subimport*{content/}{multicols}
+
+
+% ----------- %
+
+
+\section{Des cadres}
+
+\subimport*{content/}{frames}
+
+
+% ----------- %
+
+
+\part{Rédactions plus techniques -- TODO}
+
+%\setcounter{section}{0}
+%
+%\section{Mathématiques}
+%
+%\subimport*{content/extra/}{math}
+%
+%
+%% ----------- %
+%
+%
+%\section{Algorithmique}
+%
+%\subimport*{content/extra/}{algo}
+%
+%
+%% ----------- %
+%
+%
+%\section{Codage informatique}
+%
+%\subimport*{content/extra/}{coding}
+%
+%
+%% ----------- %
+%
+%
+%\part{Packages utilisés -- Liste complète des dépendances}
+%
+%\subimport*{content/}{packages-used}
 
 \end{document}
