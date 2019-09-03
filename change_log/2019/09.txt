@@ -8,6 +8,9 @@
 **New environments :** several new environments added and all pedagogical environments have a star version which doesn't print a number.
 
 
+**Global footers :** this is for the academic level and the "location" of the lessons.
+
+
 ==========
 2019-09-02
 ==========
