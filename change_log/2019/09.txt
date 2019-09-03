@@ -2,13 +2,17 @@
 2019-09-03
 ==========
 
+**Global footers:** this is for the academic level and the "location" of the lessons.
+
+
+**New environments:** several new environments added and all pedagogical environments have a star version which doesn't print a number.
+
+
+**Frames:** it is now possible to indicate a relative width regarding to the lines.
+
+
 **Factory added:** this will ease the update of the public version of the package.
 
-
-**New environments :** several new environments added and all pedagogical environments have a star version which doesn't print a number.
-
-
-**Global footers :** this is for the academic level and the "location" of the lessons.
 
 
 ==========

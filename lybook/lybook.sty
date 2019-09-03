@@ -74,10 +74,12 @@
 \fancyhead[LE]{\slshape \small \rightmark}
 \fancyhead[RO]{\slshape \small \leftmark}
 \fancyhead[LO,RE]{\small \thepage}
+\renewcommand{\footrulewidth}{0.4pt}
 
 \fancypagestyle{plain}{%
 	\fancyhf{}%clear all headers and footers
 	\renewcommand{\headrulewidth}{0pt}%header rule invisible
+	\renewcommand{\footrulewidth}{0pt}
 }
 
 
@@ -154,8 +156,18 @@
 % -- FRAMES -- %
 % ------------ %
 
-\newenvironment{frame-gene}[1][]{
-	\begin{tcolorbox}[title=#1, colbacktitle=black!10!white, colback=white, coltitle=black, breakable,center title, fonttitle=\bfseries\itshape\small]
+\newenvironment{frame-gene}[2][1]{
+	\centering
+	\begin{tcolorbox}[
+		width        = #1\linewidth,
+		title        = #2,
+		fonttitle    = \bfseries\itshape\small,
+		colbacktitle = black!10!white, 
+		colback      = white, 
+		coltitle     = black, 
+		center title, 
+		breakable
+	]
 }{
 	\end{tcolorbox}
 }
