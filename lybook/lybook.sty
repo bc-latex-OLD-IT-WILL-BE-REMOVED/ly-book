@@ -22,6 +22,11 @@
 \usepackage{hyperref}
 
 
+%% Theorem and co.
+
+\usepackage{amsthm}
+
+
 %% Language
 
 \usepackage[french]{babel}
@@ -42,7 +47,6 @@
 
 \usepackage{ifplatform}
 \usepackage{import}
-
 
 
 %% Math
@@ -136,32 +140,92 @@
 
 
 % ----------------------- %
-% -- PEDAGOGICAL TOOLS -- %
+% -- PEDAGOGICAL TOOLS -- %   
 % ----------------------- %
 
+% WARNING ! We have to start with theorem !
 \newtheorem{theorem}{Théorème}[section]
+\newtheorem*{theorem*}{Théorème}
+
+
+% Let's add theorem like environments.
+
+%%%% C
+
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{conjecture*}{Conjecture}
+
+\newtheorem{corollary}[theorem]{Corollaire}
+\newtheorem*{corollary*}{Corollaire}
+
+
+%%%% E
+
+\newtheorem{example}[theorem]{Exemple}
+\newtheorem*{example*}{Exemple}
+
+\newtheorem{exercice}[theorem]{Exercice}
+\newtheorem*{exercice*}{Exercice}
+
+%%%% L
+
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem*{lemma*}{Lemme}
+
+%%%% M
+
+\newtheorem{methodology}[theorem]{Méthodologie}
+\newtheorem*{methodology*}{Méthodologie}
+
+%%%% P
 
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollaire}
-\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem*{proposition*}{Proposition}
+
+%%%% R
 
 \newtheorem{remark}[theorem]{Remarque}
+\newtheorem*{remark*}{Remarque}
 
-\newtheorem{@proof}[theorem]{Preuve}
+%%%% V
+
+\newtheorem{vocabulary}[theorem]{Vocabulaire}
+\newtheorem*{vocabulary*}{Vocabulaire}
 
 
-\newenvironment{proof}{
+% Proof like environments.
+
+\newtheorem*{solution*}{Solution}
+\newtheorem{@solution@}[theorem]{Solution de}
+
+\newenvironment{solution}{
 	\addtocounter{theorem}{-1}
-	\begin{@proof}
+	\begin{@solution@}
 }{
-	\end{@proof}
+	\end{@solution@}
+}
+
+
+\newtheorem*{demo*}{Preuve}
+\newtheorem{@demo@}[theorem]{Preuve de}
+
+\newenvironment{demo}{
+	\addtocounter{theorem}{-1}
+	\begin{@demo@}
+}{
+	\end{@demo@}
 }
 
 % Source: https://stackoverflow.com/a/44191005/4589608
 
-\newcommand\prooftodo[1][]{%
-   \ifthenelse{ \equal{#1}{} }
-      {\begin{proof}}
-      {\begin{proof}[#1]}
-	\end{proof}
+\newcommand\demotodo{\@ifstar{\@demotodo@star}{\@demotodo@no@star}}
+
+\newcommand\@demotodo@star[1][]{%
+   	\begin{demo*}[#1]
+   	\end{demo*}
+}
+
+\newcommand\@demotodo@no@star[1][]{%
+  	\begin{demo}[#1]
+	\end{demo}
 }

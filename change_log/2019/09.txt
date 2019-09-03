@@ -1,4 +1,14 @@
 ==========
+2019-09-03
+==========
+
+**Factory added:** this will ease the update of the public version of the package.
+
+
+**New environments :** the environments `solution`, `vocabulary` and `conjecture` have been added and all pedagogical environments have a star version which doesn't print a number.
+
+
+==========
 2019-09-02
 ==========
 

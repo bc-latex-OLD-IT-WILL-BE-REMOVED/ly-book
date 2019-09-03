@@ -5,72 +5,88 @@ Voici un exemple de code, présenté sur deux colonnes
 où \verb+\fakecontent+ est une macro définie dans le code de ce document.
 
 \begin{frame-gene}[Code \LaTeX]
-\small
-\begin{multicols-sep}{2}
-	\begin{verbatim}
-\begin{theorem}[Important]
-    \fakecontent
-\end{theorem}
+	\small
+	\begin{multicols-sep}{2}
+		\begin{verbatim}
+	\begin{theorem}[Important]
+    	\fakecontent
+	\end{theorem}
 
-\prooftodo[Juste l'unicité]
+	\demotodo[Juste l'unicité]
 
-\begin{proposition}
-    \fakecontent
-\end{proposition}
+	\begin{vocabulary}
+    	\fakecontent
+	\end{vocabulary}
 
-\begin{corollary}
-    \fakecontent
-\end{corollary}\end{verbatim}
+	\begin{demo}
+	    Attention ! Ce n'est pas
+	    sémantiquement correct.
+	\end{demo}
 
-	\columnbreak
-	
-	\begin{verbatim}
-\begin{lemma}
-    \fakecontent
-\end{lemma}
+	\begin{methodology}
+	    \fakecontent
+	\end{methodology}
+		\end{verbatim}
 
-\prooftodo
 
-\begin{remark}
-    \fakecontent
-\end{remark}
+		\columnbreak
 
-\begin{proof}
-    \fakecontent
-\end{proof}\end{verbatim}
-\end{multicols-sep}
+
+		\begin{verbatim}
+	\begin{exercice}[Mise en pratique]
+    	\fakecontent
+	\end{exercice}
+
+	\begin{solution}[Les grandes lignes]
+    	\fakecontent
+	\end{solution}
+
+	\begin{example*}
+	    \fakecontent
+	\end{example*}
+
+	\demotodo*
+		\end{verbatim}
+	\end{multicols-sep}
 \end{frame-gene}
+
+
+% ---------------------- %
 
 
 La mise en forme est la suivante.
 
 \begin{frame-gene}[Rendu réel]
-\small
-\begin{theorem}[Important]
-    \fakecontent
-\end{theorem}
+	\small
+	\begin{theorem}[Important]
+    	\fakecontent
+	\end{theorem}
 
-\prooftodo[Juste l'unicité]
+	\demotodo[Juste l'unicité]
 
-\begin{proposition}
-    \fakecontent
-\end{proposition}
+	\begin{vocabulary}
+    	\fakecontent
+	\end{vocabulary}
 
-\begin{corollary}
-    \fakecontent
-\end{corollary}
+	\begin{demo}
+    	Attention ! Ce n'est pas sémantiquement correct.
+	\end{demo}
 
-\begin{lemma}
-    \fakecontent
-\end{lemma}
+	\begin{methodology}
+	    \fakecontent
+	\end{methodology}
 
-\prooftodo
+	\begin{exercice}[Mise en pratique]
+    	\fakecontent
+	\end{exercice}
 
-\begin{remark}
-    \fakecontent
-\end{remark}
+	\begin{solution}[Les grandes lignes]
+    	\fakecontent
+	\end{solution}
 
-\begin{proof}
-    \fakecontent
-\end{proof}
+	\begin{example*}
+	    \fakecontent
+	\end{example*}
+
+	\demotodo*
 \end{frame-gene}
