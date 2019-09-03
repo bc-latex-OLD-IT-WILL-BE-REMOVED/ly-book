@@ -5,7 +5,7 @@
 **Factory added:** this will ease the update of the public version of the package.
 
 
-**New environments :** the environments `solution`, `vocabulary` and `conjecture` have been added and all pedagogical environments have a star version which doesn't print a number.
+**New environments :** several new environments added and all pedagogical environments have a star version which doesn't print a number.
 
 
 ==========
