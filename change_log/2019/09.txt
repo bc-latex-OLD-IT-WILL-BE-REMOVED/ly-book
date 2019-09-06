@@ -1,4 +1,18 @@
 ==========
+2019-09-05
+==========
+
+**One new theorem like environment :** this is a definition environment.
+
+
+**One new macro ``lyquote``:** This macro puts text between two quotes using an emphasing style.
+
+
+**Formatting:** the space before titles of chapters has been reduced.
+
+
+
+==========
 2019-09-03
 ==========
 

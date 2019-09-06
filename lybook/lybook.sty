@@ -16,9 +16,10 @@
 \usepackage{color}
 
 
-%% Headers and footers
+%% Titles, headers and footers
 
 \usepackage{fancyhdr}
+\usepackage{titlesec}
 
 
 %% References
@@ -53,8 +54,9 @@
 \usepackage{import}
 
 
-%% Math
+%% Math., algo & coding
 
+\usepackage{lyalgo}
 \usepackage{lymath}
 
 
@@ -68,12 +70,13 @@
 
 %% Headers and footers
 
-\usepackage{fancyhdr}
 \pagestyle{fancy}
+
 \fancyhf{}%clear all headers and footers
 \fancyhead[LE]{\slshape \small \rightmark}
 \fancyhead[RO]{\slshape \small \leftmark}
 \fancyhead[LO,RE]{\small \thepage}
+
 \renewcommand{\footrulewidth}{0.4pt}
 
 \fancypagestyle{plain}{%
@@ -94,12 +97,21 @@
 \renewcommand\thesubsection{\arabic{subsection}}
 \renewcommand\thesubsubsection{\roman{subsubsection}}
 
+% Source
+%	* https://latex.org/forum/viewtopic.php?t=2920
+\titleformat{\chapter}[display]
+   {\normalfont\huge\bfseries}
+   {\chaptertitlename\ \thechapter}
+   {20pt}
+   {\Huge}
+
+\titlespacing*{\chapter}{0pt}{0pt}{25pt}
+
 
 \setcounter{tocdepth}{3}
 
 % Source : https://latex.org/forum/viewtopic.php?t=7094
 \renewcommand{\printtoctitle}{\centering\Large\bfseries}
-
 
 
 % #1 : Title
@@ -129,7 +141,6 @@
 }
 
 
-
 \newenvironment{bullets}{
 	\begin{itemize}[label=\small\textbullet]
 }{
@@ -150,6 +161,13 @@
 	\setlength{\columnseprule}{0pt}
 	\setlength\columnsep{10pt} 
 }
+
+
+% ------------- %
+% -- QUOTING -- %
+% ------------- %
+
+\newcommand\lyquote[1]{\emph{\og #1 \fg}}
 
 
 % ------------ %
@@ -190,11 +208,14 @@
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem*{conjecture*}{Conjecture}
 
-\newtheorem{context}[theorem]{Mise en contexte}
-\newtheorem*{context*}{Mise en contexte}
-
 \newtheorem{corollary}[theorem]{Corollaire}
 \newtheorem*{corollary*}{Corollaire}
+
+
+%%%% E
+
+\newtheorem{definition}[theorem]{Définition}
+\newtheorem*{definition*}{Définition}
 
 
 %%%% E
