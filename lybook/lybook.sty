@@ -265,9 +265,9 @@
 \newtheorem*{solution*}{Solution}
 \newtheorem{@solution@}[theorem]{Solution de}
 
-\newenvironment{solution}{
+\newenvironment{solution}[1][]{
 	\addtocounter{theorem}{-1}
-	\begin{@solution@}
+	\begin{@solution@}[#1]
 }{
 	\end{@solution@}
 }
@@ -276,9 +276,9 @@
 \newtheorem*{demo*}{Preuve}
 \newtheorem{@demo@}[theorem]{Preuve de}
 
-\newenvironment{demo}{
+\newenvironment{demo}[1][]{
 	\addtocounter{theorem}{-1}
-	\begin{@demo@}
+	\begin{@demo@}[#1]
 }{
 	\end{@demo@}
 }

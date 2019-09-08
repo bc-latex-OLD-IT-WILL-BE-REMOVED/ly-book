@@ -1,4 +1,11 @@
 ==========
+2019-09-08
+==========
+
+**Little bug:** the optional argument for the environment `demo` and `solution` was not implemented.
+
+
+==========
 2019-09-05
 ==========
 
