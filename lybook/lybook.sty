@@ -32,6 +32,12 @@
 \usepackage{amsthm}
 
 
+%% Hide/show content - Use or not piece of code
+
+
+\usepackage{tagging}
+
+
 %% Language
 
 \usepackage[french]{babel}
@@ -66,6 +72,7 @@
 % ------------------------ %
 
 \setlength\parindent{0pt}
+\renewcommand*{\thefootnote}{[\arabic{footnote}]}
 
 
 %% Headers and footers
@@ -196,74 +203,161 @@
 % -- PEDAGOGICAL TOOLS -- %   
 % ----------------------- %
 
-% WARNING ! We have to start with theorem !
-\newtheorem{theorem}{Théorème}[section]
-\newtheorem*{theorem*}{Théorème}
+% File with all references
 
+\newwrite\tempscoresfile
+
+\immediate\openout\tempscoresfile=\jobname-allrefs.py
+\immediate\write\tempscoresfile{allrefs = [}
+
+\AtEndDocument{
+	\immediate\write\tempscoresfile{]}
+	\immediate\closeout\tempscoresfile
+}
+
+\newcommand\@store@refs@{
+	\immediate\write\tempscoresfile{    "\csname the@theorem@\endcsname",}
+}
+    
+    
+% WARNING ! We have to start with theorem !
+
+\newtheorem*{theorem*}{Théorème}
+\newtheorem{@theorem@}{Théorème}[section]
+
+\newenvironment{theorem}[1][]{
+	\begin{@theorem@}[#1]
+	\@store@refs@{}
+}{
+	\end{@theorem@}
+}
 
 % Let's add theorem like environments.
 
 %%%% C
 
-\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem*{conjecture*}{Conjecture}
+\newtheorem{@conjecture@}[@theorem@]{Conjecture}
 
-\newtheorem{corollary}[theorem]{Corollaire}
+\newenvironment{conjecture}[1][]{
+	\begin{@conjecture@}[#1]
+	\@store@refs@{}
+}{
+	\end{@conjecture@}
+}
+
+\newtheorem{@corollary@}[@theorem@]{Corollaire}
 \newtheorem*{corollary*}{Corollaire}
 
+\newenvironment{corollary}[1][]{
+	\begin{@corollary@}[#1]
+	\@store@refs@{}
+}{
+	\end{@corollary@}
+}
+
 
 %%%% E
 
-\newtheorem{definition}[theorem]{Définition}
+\newtheorem{@definition@}[@theorem@]{Définition}
 \newtheorem*{definition*}{Définition}
 
+\newenvironment{definition}[1][]{
+	\begin{@definition@}[#1]
+	\@store@refs@{}
+}{
+	\end{@definition@}
+}
+
 
 %%%% E
 
-\newtheorem{example}[theorem]{Exemple}
+\newtheorem{example}[@theorem@]{Exemple}
 \newtheorem*{example*}{Exemple}
 
-\newtheorem{exercice}[theorem]{Exercice}
+\newtheorem{exercice}[@theorem@]{Exercice}
 \newtheorem*{exercice*}{Exercice}
 
 %%%% L
 
-\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{@lemma@}[@theorem@]{Lemme}
 \newtheorem*{lemma*}{Lemme}
+
+\newenvironment{lemma}[1][]{
+	\begin{@lemma@}[#1]
+	\@store@refs@{}
+}{
+	\end{@lemma@}
+}
 
 %%%% M
 
-\newtheorem{methodology}[theorem]{Méthodologie}
+\newtheorem{@methodology@}[@theorem@]{Méthodologie}
 \newtheorem*{methodology*}{Méthodologie}
+
+\newenvironment{methodology}[1][]{
+	\begin{@methodology@}[#1]
+	\@store@refs@{}
+}{
+	\end{@methodology@}
+}
 
 %%%% N
 
-\newtheorem{notation}[theorem]{Notation}
+\newtheorem{@notation@}[@theorem@]{Notation}
 \newtheorem*{notation*}{Notation}
 
-\newtheorem{notations}[theorem]{Notations}
+\newenvironment{notation}[1][]{
+	\begin{@notation@}[#1]
+	\@store@refs@{}
+}{
+	\end{@notation@}
+}
+
+\newtheorem{@notations@}[@theorem@]{Notations}
 \newtheorem*{notations*}{Notations}
+
+\newenvironment{notations}[1][]{
+	\begin{@notations@}[#1]
+	\@store@refs@{}
+}{
+	\end{@notations@}
+}
 
 %%%% P
 
-\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{@proposition@}[@theorem@]{Proposition}
 \newtheorem*{proposition*}{Proposition}
+
+\newenvironment{proposition}[1][]{
+	\begin{@proposition@}[#1]
+	\@store@refs@{}
+}{
+	\end{@proposition@}
+}
 
 %%%% R
 
-\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{remark}[@theorem@]{Remarque}
 \newtheorem*{remark*}{Remarque}
 
 %%%% V
 
-\newtheorem{vocabulary}[theorem]{Vocabulaire}
+\newtheorem{@vocabulary@}[@theorem@]{Vocabulaire}
 \newtheorem*{vocabulary*}{Vocabulaire}
+
+\newenvironment{vocabulary}[1][]{
+	\begin{@vocabulary@}[#1]
+	\@store@refs@{}
+}{
+	\end{@vocabulary@}
+}
 
 
 % Proof like environments.
 
 \newtheorem*{solution*}{Solution}
-\newtheorem{@solution@}[theorem]{Solution de}
+\newtheorem{@solution@}[@theorem@]{Solution de}
 
 \newenvironment{solution}[1][]{
 	\addtocounter{theorem}{-1}
@@ -274,11 +368,12 @@
 
 
 \newtheorem*{demo*}{Preuve}
-\newtheorem{@demo@}[theorem]{Preuve de}
+\newtheorem{@demo@}[@theorem@]{Preuve de}
 
 \newenvironment{demo}[1][]{
-	\addtocounter{theorem}{-1}
+	\addtocounter{@theorem@}{-1}
 	\begin{@demo@}[#1]
+	\@store@refs@{}
 }{
 	\end{@demo@}
 }

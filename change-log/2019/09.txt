@@ -1,4 +1,17 @@
 ==========
+2019-09-12
+==========
+
+**New formatting for the footnotes :** the numbering uses square braces now.
+
+
+**References of things to know:** a ¨python file containing only a lsit variable with the references of theorem, propositions, ... that must be known by the students (this will be used to produce short version of the lessons). This external file has a name looking like path::``*-allrefs.py``.
+
+
+**New package loaded:** the package `tagging` allows to display, or not, pieces of ¨latex code (this will be used to produce short version of the lessons).
+
+
+==========
 2019-09-08
 ==========
 
