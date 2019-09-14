@@ -207,8 +207,10 @@
 
 \newwrite\tempscoresfile
 
-\immediate\openout\tempscoresfile=\jobname-allrefs.py
-\immediate\write\tempscoresfile{allrefs = [}
+\immediate\openout\tempscoresfile=\jobname.json
+\immediate\write\tempscoresfile{// To have the good numbering of theorems and co.}
+\immediate\write\tempscoresfile{}
+\immediate\write\tempscoresfile{refs_for_short = [}
 
 \AtEndDocument{
 	\immediate\write\tempscoresfile{]}
@@ -216,7 +218,7 @@
 }
 
 \newcommand\@store@refs@{
-	\immediate\write\tempscoresfile{    "\csname the@theorem@\endcsname",}
+	\immediate\write\tempscoresfile{\arabic{@theorem@},}
 }
     
     

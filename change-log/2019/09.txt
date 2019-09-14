@@ -1,14 +1,21 @@
 ==========
+2019-09-14
+==========
+
+**References of things to know:** for a better interoperability, this will be a ¨json rather than a ¨python file that will be created.
+
+
+==========
 2019-09-12
 ==========
 
-**New formatting for the footnotes :** the numbering uses square braces now.
+**New formatting for the footnotes :** the numbering uses squared braces now.
 
 
-**References of things to know:** a ¨python file containing only a lsit variable with the references of theorem, propositions, ... that must be known by the students (this will be used to produce short version of the lessons). This external file has a name looking like path::``*-allrefs.py``.
+**References of things to know:** a ¨python file containing only a list variable with the references of theorems, propositions, ... that must be known by the students (this will be used to produce automatically a short version of a lesson). This external file has a name looking like path::``*-allrefs.py``.
 
 
-**New package loaded:** the package `tagging` allows to display, or not, pieces of ¨latex code (this will be used to produce short version of the lessons).
+**New package loaded:** the package `tagging` allows to activate, or not, pieces of ¨latex code (this will be used to produce short version of the lessons).
 
 
 ==========
@@ -22,7 +29,7 @@
 2019-09-05
 ==========
 
-**One new theorem like environment :** this is a definition environment.
+**One new theorem like environment :** this is an environment for the definitions.
 
 
 **One new macro ``lyquote``:** This macro puts text between two quotes using an emphasing style.
