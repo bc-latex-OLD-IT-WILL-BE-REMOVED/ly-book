@@ -1,4 +1,22 @@
 ==========
+2019-09-24
+==========
+
+**Preparing tools for short versions:** the aim is to prepare things for the ¨python project pylybook.
+
+
+==========
+2019-09-19
+==========
+
+**Three new theorem like environment.**
+
+    1) The plurial version of the environment `definition` has been added.
+
+    2) The environments `warning` and `warnings` have been added.
+
+
+==========
 2019-09-14
 ==========
 
@@ -29,7 +47,7 @@
 2019-09-05
 ==========
 
-**One new theorem like environment :** this is an environment for the definitions.
+**One new theorem like environment :** this is the environment `definition` for the definitions.
 
 
 **One new macro ``lyquote``:** This macro puts text between two quotes using an emphasing style.

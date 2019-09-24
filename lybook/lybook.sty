@@ -6,7 +6,7 @@
 %% Formatting
 
 \usepackage[
-	top  = 2.25cm, bottom = 2.25cm, 
+	top  = 2.25cm, bottom = 2.25cm,
 	left = 1.75cm, right  = 1.75cm
 ]{geometry}
 
@@ -32,12 +32,6 @@
 \usepackage{amsthm}
 
 
-%% Hide/show content - Use or not piece of code
-
-
-\usepackage{tagging}
-
-
 %% Language
 
 \usepackage[french]{babel}
@@ -54,6 +48,11 @@
 \tcbuselibrary{breakable}
 
 
+%% Hide/show content - Use or not piece of code
+
+\usepackage{comment}
+
+
 %% Misc.
 
 \usepackage{ifplatform}
@@ -64,6 +63,7 @@
 
 \usepackage{lyalgo}
 \usepackage{lymath}
+
 
 
 
@@ -161,12 +161,12 @@
 
 \newenvironment{multicols-sep}[1]{
 	\setlength{\columnseprule}{0.4pt}
-	\setlength\columnsep{40pt} 
+	\setlength\columnsep{40pt}
 	\begin{multicols}{#1}
 }{
 	\end{multicols}
 	\setlength{\columnseprule}{0pt}
-	\setlength\columnsep{10pt} 
+	\setlength\columnsep{10pt}
 }
 
 
@@ -187,10 +187,10 @@
 		width        = #1\linewidth,
 		title        = #2,
 		fonttitle    = \bfseries\itshape\small,
-		colbacktitle = black!10!white, 
-		colback      = white, 
-		coltitle     = black, 
-		center title, 
+		colbacktitle = black!10!white,
+		colback      = white,
+		coltitle     = black,
+		center title,
 		breakable
 	]
 }{
@@ -200,28 +200,53 @@
 
 
 % ----------------------- %
-% -- PEDAGOGICAL TOOLS -- %   
+% -- PEDAGOGICAL TOOLS -- %
 % ----------------------- %
+
+% Long/short content
+\newif\ifshowslong
+\showslongtrue
+\DeclareOption{short}{\showslongfalse}
+
+\ProcessOptions
+
+\ifshowslong
+	\includecomment{forlong}
+	\excludecomment{forshort}
+		
+	\newcommand\iflong[1]{#1}
+	\newcommand\ifshort[1]{}
+\else
+	\includecomment{forshort}
+	\excludecomment{forlong}
+		
+	\newcommand\iflong[1]{}
+	\newcommand\ifshort[1]{#1}
+\fi
+
+
+
+\newcommand\eliflong[2]{\iflong{#1}\ifshort{#2}}
+\newcommand\elifshort[2]{\iflong{#2}\ifshort{#1}}
+
 
 % File with all references
 
 \newwrite\tempscoresfile
 
-\immediate\openout\tempscoresfile=\jobname.json
-\immediate\write\tempscoresfile{// To have the good numbering of theorems and co.}
-\immediate\write\tempscoresfile{}
-\immediate\write\tempscoresfile{refs_for_short = [}
+\newcommand\txtfile{\jobname.shortrefs}
+
+\immediate\openout\tempscoresfile=\txtfile.txt
 
 \AtEndDocument{
-	\immediate\write\tempscoresfile{]}
 	\immediate\closeout\tempscoresfile
 }
 
 \newcommand\@store@refs@{
-	\immediate\write\tempscoresfile{\arabic{@theorem@},}
+	\immediate\write\tempscoresfile{\arabic{@theorem@}}
 }
-    
-    
+
+
 % WARNING ! We have to start with theorem !
 
 \newtheorem*{theorem*}{Théorème}
@@ -269,6 +294,16 @@
 	\@store@refs@{}
 }{
 	\end{@definition@}
+}
+
+\newtheorem{@definitions@}[@theorem@]{Définitions}
+\newtheorem*{definitions*}{Définitions}
+
+\newenvironment{definitions}[1][]{
+	\begin{@definitions@}[#1]
+	\@store@refs@{}
+}{
+	\end{@definitions@}
 }
 
 
@@ -353,6 +388,28 @@
 	\@store@refs@{}
 }{
 	\end{@vocabulary@}
+}
+
+%%%% W
+
+\newtheorem{@warning@}[@theorem@]{Avertissement}
+\newtheorem*{warning*}{Avertissement}
+
+\newenvironment{warning}[1][]{
+	\begin{@warning@}[#1]
+	\@store@refs@{}
+}{
+	\end{@warning@}
+}
+
+\newtheorem{@warnings@}[@theorem@]{Avertissements}
+\newtheorem*{warnings*}{Avertissements}
+
+\newenvironment{warnings}[1][]{
+	\begin{@warnings@}[#1]
+	\@store@refs@{}
+}{
+	\end{@warnings@}
 }
 
 
