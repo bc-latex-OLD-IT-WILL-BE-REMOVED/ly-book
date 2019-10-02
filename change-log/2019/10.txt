@@ -3,3 +3,6 @@
 ==========
 
 **Two new theorem like environment:** the environment `reminder` and its plurial version.
+
+
+**Documentation updated:** an example showing the use of ``\leavevmode`` from ``amsthm`` has been added.

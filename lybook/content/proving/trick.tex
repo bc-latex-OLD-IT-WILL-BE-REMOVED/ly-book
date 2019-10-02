@@ -1,0 +1,45 @@
+L'exemple qui suit montre l'utilisation de la macro \verb+\leavevmode+ proposée par le package \verb+amsthm+ pour résoudre un problème lorsque le contenu commence directement par une liste.
+
+\begin{frame-gene}{Code \LaTeX}
+    \small
+\begin{verbatim}
+\begin{theorem}[Sans l'astuce]
+    \begin{enumerate}
+        \item Un premier truc.
+        \item Un second truc.
+    \end{enumerate}        
+\end{theorem}
+
+\begin{theorem}[Avec l'astuce]
+    \leavevmode
+    \begin{enumerate}
+        \item Un premier truc.
+        \item Un second truc.
+    \end{enumerate}        
+\end{theorem}
+\end{verbatim}
+\end{frame-gene}
+
+
+% ---------------------- %
+
+
+La mise en forme est la suivante.
+
+\begin{frame-gene}{Rendu réel}
+    \small
+\begin{theorem}[Sans l'astuce]
+       \begin{enumerate}
+        \item Un premier truc.
+        \item Un second truc.
+    \end{enumerate}        
+\end{theorem}
+
+\begin{theorem}[Avec l'astuce]
+       \leavevmode
+    \begin{enumerate}
+        \item Un premier truc.
+        \item Un second truc.
+    \end{enumerate}        
+\end{theorem}
+\end{frame-gene}
