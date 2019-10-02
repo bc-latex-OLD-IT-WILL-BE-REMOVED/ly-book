@@ -65,6 +65,16 @@
 \usepackage{lymath}
 
 
+% ------------- %
+% -- OPTIONS -- %
+% ------------- %
+
+% Long/short content
+\newif\ifshowslong
+\showslongtrue
+\DeclareOption{short}{\showslongfalse}
+
+\ProcessOptions
 
 
 % ------------------------ %
@@ -108,7 +118,7 @@
 %	* https://latex.org/forum/viewtopic.php?t=2920
 \titleformat{\chapter}[display]
    {\normalfont\huge\bfseries}
-   {\chaptertitlename\ \thechapter}
+   {\chaptertitlename\ \thechapter\ifshowslong\else \, (Résumé)\fi}
    {20pt}
    {\Huge}
 
@@ -129,7 +139,7 @@
 \newcommand\buildfront[5]{
 	\frontmatter
 
-	\title{#1}
+	\title{#1\ifshowslong\else\break(Résumé)\fi}
 	\author{#2}
 	\date{#3}
 
@@ -204,11 +214,6 @@
 % ----------------------- %
 
 % Long/short content
-\newif\ifshowslong
-\showslongtrue
-\DeclareOption{short}{\showslongfalse}
-
-\ProcessOptions
 
 \ifshowslong
 	\includecomment{forlong}
@@ -377,6 +382,12 @@
 
 \newtheorem{remark}[@theorem@]{Remarque}
 \newtheorem*{remark*}{Remarque}
+
+\newtheorem{reminder}[@theorem@]{Rappel}
+\newtheorem*{reminder*}{Rappel}
+
+\newtheorem{reminders}[@theorem@]{Rappels}
+\newtheorem*{reminders*}{Rappels}
 
 %%%% V
 

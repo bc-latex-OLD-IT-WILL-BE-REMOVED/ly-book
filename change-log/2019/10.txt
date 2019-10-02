@@ -1,0 +1,5 @@
+==========
+2019-10-02
+==========
+
+**Two new theorem like environment:** the environment `reminder` and its plurial version.
